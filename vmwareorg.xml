@@ -2,24 +2,23 @@
 <manifest>
 
   <!-- Github vmware Organization -->
-  <remote  name="vmwareorg"
-           fetch="https://github.com/vmware"
-           review="gerrit.eng.vmware.com:8080" />
+  <remote  name="richardboswell"
+           fetch="https://github.com/richardboswell" />
 
   <!-- Defaults for repo -->
-  <default remote="vmwareorg"
+  <default remote="richardboswell"
            sync-c="true"
            sync-j="4"
            revision="master" />
 
   <!-- user interface (django webapp) -->
-  <project path="ui" name="chaperone-ui" groups="chaperone" remote="vmwareorg"/>
+  <project path="ui" name="chaperone-ui" groups="chaperone" remote="richardboswell"/>
 
   <!-- playbooks -->
-  <project path="ansible/playbooks" name="ansible-playbooks-chaperone" groups="playbooks,sdlc,chaperone" remote="vmwareorg"/>
+  <project path="ansible/playbooks" name="ansible-playbooks-chaperone" groups="playbooks,sdlc,chaperone" remote="richardboswell"/>
 
   <!-- python modules -->
-  <project path="ansible/modules/extras-gpl3" name="ansible-modules-extras-gpl3" groups="modules,chaperone" remote="vmwareorg">
+  <project path="ansible/modules/extras-gpl3" name="ansible-modules-extras-gpl3" groups="modules,chaperone" remote="richardboswell">
     <copyfile src="vds.py" dest="ansible/library/vds.py" />
     <copyfile src="vcenter_portgroup.py" dest="ansible/library/vcenter_portgroup.py" />
     <copyfile src="vcenter_cluster.py" dest="ansible/library/vcenter_cluster.py" />
@@ -61,7 +60,7 @@
 
   </project>
 
-  <project path="ansible/modules/chaperone" name="ansible-module-chaperone" groups="modules,chaperone" remote="vmwareorg">
+  <project path="ansible/modules/chaperone" name="ansible-module-chaperone" groups="modules,chaperone" remote="richardboswell">
     <copyfile src="set_vcsa_sh.py" dest="ansible/library/set_vcsa_sh.py" />
     <copyfile src="vcenter_query.py" dest="ansible/library/vcenter_query.py" />
     <copyfile src="does_vm_exist.py" dest="ansible/library/does_vm_exist.py" />
@@ -77,7 +76,7 @@
   </project>
 
    <!-- nsxansible - the directory structure is for a playbook, we need to modify slightly -->
-  <project path="ansible/modules/nsx" name="nsxansible.git" groups="modules,chaperone" remote="vmwareorg" >
+  <project path="ansible/modules/nsx" name="nsxansible.git" groups="modules,chaperone" remote="richardboswell" >
     <copyfile src="library/__init__.py" dest="ansible/library/__init__.py" />
     <copyfile src="library/nsx_cluster_prep.py" dest="ansible/library/nsx_cluster_prep.py" />
     <copyfile src="library/nsx_controllers.py" dest="ansible/library/nsx_controllers.py" />
@@ -93,55 +92,55 @@
     <copyfile src="library/vcenter_gather_moids.py" dest="ansible/library/vcenter_gather_moids.py" />
   </project>
 
-  <project path="ansible/roles/nsx/files" name="nsxraml.git" groups="modules,chaperone" remote="vmwareorg" >
+  <project path="ansible/roles/nsx/files" name="nsxraml.git" groups="modules,chaperone" remote="richardboswell" >
   </project>
 
   <!-- roles -->
   <!-- build and source infrastructure -->
-  <project path="ansible/roles/jenkins" name="ansible-role-jenkins" groups="sdlc" remote="vmwareorg" />
-  <project path="ansible/roles/haproxy" name="ansible-role-haproxy" groups="sdlc" remote="vmwareorg" />
+  <project path="ansible/roles/jenkins" name="ansible-role-jenkins" groups="sdlc" remote="richardboswell" />
+  <project path="ansible/roles/haproxy" name="ansible-role-haproxy" groups="sdlc" remote="richardboswell" />
 
   <!-- general -->
-  <project path="ansible/roles/ansible" name="ansible-role-ansible" groups="sdlc,roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/assets" name="ansible-role-assets" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/autodeploy" name="ansible-role-autodeploy" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/chaperone" name="ansible-role-chaperone" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/dnsmasq" name="ansible-role-dnsmasq" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/docker" name="ansible-role-docker" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/govc" name="ansible-role-govc" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/iptables" name="ansible-role-iptables" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/kibana" name="ansible-role-kibana" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/kubernetes_master" name="ansible-role-kubernetes-master" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/kubernetes_node" name="ansible-role-kubernetes-node" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/elasticsearch" name="ansible-role-elasticsearch" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/liota" name="ansible-role-liota" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/logstash-server" name="ansible-role-logstash-server" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/net" name="ansible-role-net" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/nfs" name="ansible-role-nfs" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/nsx" name="ansible-role-nsx" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/ovftool" name="ansible-role-ovftool" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/photon" name="ansible-role-photon" groups="sdlc,roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/pip" name="ansible-role-pip" groups="sdlc,roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/registrator" name="ansible-role-registrator" groups="sdlc,roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/repo" name="ansible-role-repo" groups="sdlc,roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/sshkeys" name="ansible-role-sshkeys" groups="sdlc,roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/sudo" name="ansible-role-sudo" groups="sdlc,roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/vcenter" name="ansible-role-vcenter" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/vcsa" name="ansible-role-vcsa" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/vio" name="ansible-role-vio" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/vrops" name="ansible-role-vrops" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/vra" name="ansible-role-vra" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/vrli" name="ansible-role-vrli" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/vrb" name="ansible-role-vrb" groups="roles,chaperone" remote="vmwareorg"/>
-  <project path="ansible/roles/vrpt" name="ansible-role-vrpt" groups="roles,chaperone" remote="vmwareorg"/>
+  <project path="ansible/roles/ansible" name="ansible-role-ansible" groups="sdlc,roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/assets" name="ansible-role-assets" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/autodeploy" name="ansible-role-autodeploy" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/chaperone" name="ansible-role-chaperone" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/dnsmasq" name="ansible-role-dnsmasq" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/docker" name="ansible-role-docker" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/govc" name="ansible-role-govc" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/iptables" name="ansible-role-iptables" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/kibana" name="ansible-role-kibana" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/kubernetes_master" name="ansible-role-kubernetes-master" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/kubernetes_node" name="ansible-role-kubernetes-node" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/elasticsearch" name="ansible-role-elasticsearch" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/liota" name="ansible-role-liota" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/logstash-server" name="ansible-role-logstash-server" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/net" name="ansible-role-net" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/nfs" name="ansible-role-nfs" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/nsx" name="ansible-role-nsx" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/ovftool" name="ansible-role-ovftool" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/photon" name="ansible-role-photon" groups="sdlc,roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/pip" name="ansible-role-pip" groups="sdlc,roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/registrator" name="ansible-role-registrator" groups="sdlc,roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/repo" name="ansible-role-repo" groups="sdlc,roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/sshkeys" name="ansible-role-sshkeys" groups="sdlc,roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/sudo" name="ansible-role-sudo" groups="sdlc,roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/vcenter" name="ansible-role-vcenter" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/vcsa" name="ansible-role-vcsa" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/vio" name="ansible-role-vio" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/vrops" name="ansible-role-vrops" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/vra" name="ansible-role-vra" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/vrli" name="ansible-role-vrli" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/vrb" name="ansible-role-vrb" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/vrpt" name="ansible-role-vrpt" groups="roles,chaperone" remote="richardboswell"/>
 
   <!-- container images -->
-  <project path="containers/docker/chaperone" name="docker-chaperone" groups="chaperone,docker,sdlc" remote="vmwareorg"/>
-  <project path="containers/docker/collectd" name="docker-collectd" groups="chaperone,docker" remote="vmwareorg"/>
-  <project path="containers/docker/elasticsearch" name="docker-elasticsearch" groups="chaperone,docker" remote="vmwareorg"/>
-  <project path="containers/docker/graphite-api" name="docker-graphite-api" groups="chaperone,docker" remote="vmwareorg"/>
-  <project path="containers/docker/jenkins" name="docker-jenkins" groups="chaperone,docker,sdlc" remote="vmwareorg"/>
-  <project path="containers/docker/kibana" name="docker-kibana" groups="chaperone,docker" remote="vmwareorg"/>
-  <project path="containers/docker/logstash-server" name="docker-logstash-server" groups="chaperone,docker" remote="vmwareorg"/>
-  <project path="containers/docker/vrpt" name="docker-vrpt" groups="chaperone,docker,sdlc" remote="vmwareorg"/>
+  <project path="containers/docker/chaperone" name="docker-chaperone" groups="chaperone,docker,sdlc" remote="richardboswell"/>
+  <project path="containers/docker/collectd" name="docker-collectd" groups="chaperone,docker" remote="richardboswell"/>
+  <project path="containers/docker/elasticsearch" name="docker-elasticsearch" groups="chaperone,docker" remote="richardboswell"/>
+  <project path="containers/docker/graphite-api" name="docker-graphite-api" groups="chaperone,docker" remote="richardboswell"/>
+  <project path="containers/docker/jenkins" name="docker-jenkins" groups="chaperone,docker,sdlc" remote="richardboswell"/>
+  <project path="containers/docker/kibana" name="docker-kibana" groups="chaperone,docker" remote="richardboswell"/>
+  <project path="containers/docker/logstash-server" name="docker-logstash-server" groups="chaperone,docker" remote="richardboswell"/>
+  <project path="containers/docker/vrpt" name="docker-vrpt" groups="chaperone,docker,sdlc" remote="richardboswell"/>
 </manifest>
