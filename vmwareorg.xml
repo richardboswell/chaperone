@@ -110,6 +110,7 @@
   <project path="ansible/roles/dnsmasq" name="ansible-role-dnsmasq" groups="roles,chaperone" remote="richardboswell"/>
   <project path="ansible/roles/docker" name="ansible-role-docker" groups="roles,chaperone" remote="richardboswell"/>
   <project path="ansible/roles/govc" name="ansible-role-govc" groups="roles,chaperone" remote="richardboswell"/>
+  <project path="ansible/roles/hosts" name="ansible-role-hosts" groups="roles,chaperone" remote="richardboswell"/>
   <project path="ansible/roles/iptables" name="ansible-role-iptables" groups="roles,chaperone" remote="richardboswell"/>
   <project path="ansible/roles/kibana" name="ansible-role-kibana" groups="roles,chaperone" remote="richardboswell"/>
   <project path="ansible/roles/kubernetes_master" name="ansible-role-kubernetes-master" groups="roles,chaperone" remote="richardboswell"/>
