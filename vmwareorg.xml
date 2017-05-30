@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <!-- Github vmware Organization -->
+  <!-- Github richardboswell Organization -->
   <remote  name="richardboswell"
            fetch="https://github.com/richardboswell" />
+
+  <!-- Github vmware Organization -->
+  <remote  name="vmwareorg"
+           fetch="https://github.com/vmware" />
+
 
   <!-- Defaults for repo -->
   <default remote="richardboswell"
@@ -76,7 +81,7 @@
   </project>
 
    <!-- nsxansible - the directory structure is for a playbook, we need to modify slightly -->
-  <project path="ansible/modules/nsx" name="nsxansible.git" groups="modules,chaperone" remote="richardboswell" >
+  <project path="ansible/modules/nsx" name="nsxansible.git" groups="modules,chaperone" remote="vmwareorg" >
     <copyfile src="library/__init__.py" dest="ansible/library/__init__.py" />
     <copyfile src="library/nsx_cluster_prep.py" dest="ansible/library/nsx_cluster_prep.py" />
     <copyfile src="library/nsx_controllers.py" dest="ansible/library/nsx_controllers.py" />
@@ -92,13 +97,12 @@
     <copyfile src="library/vcenter_gather_moids.py" dest="ansible/library/vcenter_gather_moids.py" />
   </project>
 
-  <project path="ansible/roles/nsx/files" name="nsxraml.git" groups="modules,chaperone" remote="richardboswell" >
-  </project>
+  <project path="ansible/roles/nsx/files" name="nsxraml.git" groups="modules,chaperone" remote="vmwareorg" />
 
   <!-- roles -->
   <!-- build and source infrastructure -->
-  <project path="ansible/roles/jenkins" name="ansible-role-jenkins" groups="sdlc" remote="richardboswell" />
-  <project path="ansible/roles/haproxy" name="ansible-role-haproxy" groups="sdlc" remote="richardboswell" />
+<!--   <project path="ansible/roles/jenkins" name="ansible-role-jenkins" groups="sdlc" remote="richardboswell" />
+  <project path="ansible/roles/haproxy" name="ansible-role-haproxy" groups="sdlc" remote="richardboswell" /> -->
 
   <!-- general -->
   <project path="ansible/roles/ansible" name="ansible-role-ansible" groups="sdlc,roles,chaperone" remote="richardboswell"/>
@@ -128,19 +132,19 @@
   <project path="ansible/roles/vcenter" name="ansible-role-vcenter" groups="roles,chaperone" remote="richardboswell"/>
   <project path="ansible/roles/vcsa" name="ansible-role-vcsa" groups="roles,chaperone" remote="richardboswell"/>
   <project path="ansible/roles/vio" name="ansible-role-vio" groups="roles,chaperone" remote="richardboswell"/>
-  <project path="ansible/roles/vrops" name="ansible-role-vrops" groups="roles,chaperone" remote="richardboswell"/>
+<!--  <project path="ansible/roles/vrops" name="ansible-role-vrops" groups="roles,chaperone" remote="richardboswell"/> -->
   <project path="ansible/roles/vra" name="ansible-role-vra" groups="roles,chaperone" remote="richardboswell"/>
-  <project path="ansible/roles/vrli" name="ansible-role-vrli" groups="roles,chaperone" remote="richardboswell"/>
-  <project path="ansible/roles/vrb" name="ansible-role-vrb" groups="roles,chaperone" remote="richardboswell"/>
-  <project path="ansible/roles/vrpt" name="ansible-role-vrpt" groups="roles,chaperone" remote="richardboswell"/>
+<!--  <project path="ansible/roles/vrli" name="ansible-role-vrli" groups="roles,chaperone" remote="richardboswell"/> -->
+<!--  <project path="ansible/roles/vrb" name="ansible-role-vrb" groups="roles,chaperone" remote="richardboswell"/> -->
+<!--  <project path="ansible/roles/vrpt" name="ansible-role-vrpt" groups="roles,chaperone" remote="richardboswell"/> -->
 
   <!-- container images -->
-  <project path="containers/docker/chaperone" name="docker-chaperone" groups="chaperone,docker,sdlc" remote="richardboswell"/>
+<!--  <project path="containers/docker/chaperone" name="docker-chaperone" groups="chaperone,docker,sdlc" remote="richardboswell"/>
   <project path="containers/docker/collectd" name="docker-collectd" groups="chaperone,docker" remote="richardboswell"/>
   <project path="containers/docker/elasticsearch" name="docker-elasticsearch" groups="chaperone,docker" remote="richardboswell"/>
   <project path="containers/docker/graphite-api" name="docker-graphite-api" groups="chaperone,docker" remote="richardboswell"/>
   <project path="containers/docker/jenkins" name="docker-jenkins" groups="chaperone,docker,sdlc" remote="richardboswell"/>
   <project path="containers/docker/kibana" name="docker-kibana" groups="chaperone,docker" remote="richardboswell"/>
   <project path="containers/docker/logstash-server" name="docker-logstash-server" groups="chaperone,docker" remote="richardboswell"/>
-  <project path="containers/docker/vrpt" name="docker-vrpt" groups="chaperone,docker,sdlc" remote="richardboswell"/>
+  <project path="containers/docker/vrpt" name="docker-vrpt" groups="chaperone,docker,sdlc" remote="richardboswell"/> -->
 </manifest>
